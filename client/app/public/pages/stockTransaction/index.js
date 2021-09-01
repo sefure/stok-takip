@@ -3,6 +3,7 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 Template.publicPageStockTransaction.onCreated(function () {
   this.state = new ReactiveDict(null, {
+    stockCard: null,
     stockTransactions: [],
   });
 
@@ -11,17 +12,38 @@ Template.publicPageStockTransaction.onCreated(function () {
 Template.publicPageStockTransaction.onRendered(function () {
   const self = this;
 
+  this.autorun(function () {
+    AppUtil.refreshTokens.get('stockCards');
+    AppUtil.refreshTokens.get('stockTransactions');
+
+    const stockCardId = FlowRouter.getParam('stockCardId');
+
+    if (!stockCardId) {
+      return;
+    }
+
+    Meteor.call('stockCards.show', { _id: stockCardId }, function (error, result) {
+      if (error) {
+        console.log('error', error);
+      }
+      if (result) {
+
+        console.log(result);
+        self.state.set('stockCard', result);
+      }
+    });
+  });
 
   this.autorun(function () {
     AppUtil.refreshTokens.get('stockTransactions');
 
     const stockCardId = FlowRouter.getParam('stockCardId');
 
-    if(!stockCardId){
+    if (!stockCardId) {
       return;
     }
 
-    Meteor.call('stockTransactions.list', {stockCardId: stockCardId}, function (error, result) {
+    Meteor.call('stockTransactions.list', { stockCardId: stockCardId }, function (error, result) {
       if (error) {
         console.log('error', error);
       }
@@ -68,16 +90,17 @@ Template.publicPageStockTransaction.events({
     });
 
   },
-  
- 'click .brd-class-add' : function (event, template) {
-   AppUtil.temp.set('stockCardId', this._id)
- },
- 'click .brd-select-class': function (event, template) {
-   event.preventDefault();
 
-   console.log(this);
-   template.state.set('stockCard', this);
- },
+  'click .brd-stockTransaction-update': function (event, template) {
+    AppUtil.temp.set('stockTransaction', this)
+  },
+
+  'click .brd-select-class': function (event, template) {
+    event.preventDefault();
+
+    console.log(this);
+    template.state.set('stockCard', this);
+  },
 
 
 });

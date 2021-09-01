@@ -9,14 +9,5 @@ new ValidatedMethod({
   run: function (data) {
     this.unblock();
 
-    ActionStockCardUpdateQuantity(data._id, data.quantity)
   }
 });
-ActionStockCardUpdateQuantity = (_id, quantity, type)=> {
-  StockCards.update( { _id: _id },{ 
-    $inc: { 
-      quantity: quantity,
-      
-    }
-  });
-}

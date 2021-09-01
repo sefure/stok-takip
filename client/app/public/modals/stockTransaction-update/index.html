@@ -1,0 +1,48 @@
+<template name="publicModalStockTransactionUpdate">
+  {{#let _stockTransaction=(appUtil.temp.get 'stockTransaction')}}
+    <div class="modal" id="brdPublicModalStockTransactionUpdateModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update Stock Transaction</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            {{#with _stockTransaction}}
+
+              <form id="brdPublicModalStockTransactionUpdateForm">
+
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="brdPublicModalStockTransactionUpdateQuantity" name="quantity" required value="{{quantity}}" placeholder=" ">
+                  <label for="brdPublicModalStockTransactionUpdateQuantity">Quantity</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalStockTransactionUpdateType" name="type" required value="{{type}}" placeholder=" ">
+                  <label for="brdPublicModalStockTransactionUpdateType">Type</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="brdPublicModalStockTransactionUpdatePrice" name="price" required value="{{price}}" placeholder=" ">
+                  <label for="brdPublicModalStockTransactionUpdatePrice">Price</label>
+                </div>
+
+              </form>
+
+            {{/with}}
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="brdPublicModalStockTransactionUpdateForm" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/let}}
+
+</template>

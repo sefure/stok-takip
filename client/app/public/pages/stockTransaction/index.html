@@ -5,10 +5,10 @@
     <div class="container py-4">
 
       <div class="d-flex">
-        <h4>Stock Transactions {{name}}</h4>
+        <h4>Stock Transactions {{_stockCard.product.name}} ({{_stockCard.quantity}} {{_stockCard.unit.name}} )</h4>
 
         <div class="ms-auto">
-          <button class="btn btn-success btn-sm float-end brd-class-add" data-bs-toggle="modal" data-bs-target="#brdPublicModalStockTransactionCreateModal">Ekle</button>
+          <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#brdPublicModalStockTransactionCreateModal">Ekle</button>
         </div>
       </div>
 
@@ -17,8 +17,13 @@
 
           {{#each _stockTransactions}}
             <li class="list-group-item">
-              {{stockCardId}}
-              <button class="btn btn-danger btn-sm float-end brd-stockTransaction-remove">Sil</button>
+              Miktar: {{quantity}} / Tür: {{type}} / Birim Fiyatı: {{price}} ₺
+
+              <div class="float-end">
+
+                <button class="btn btn-warning btn-sm brd-stockTransaction-update" data-bs-toggle="modal" data-bs-target="#brdPublicModalStockTransactionUpdateModal">Update</button>
+                <button class="btn btn-danger btn-sm brd-stockTransaction-remove">Sil</button>
+              </div>
             </li>
 
           {{/each}}
@@ -32,5 +37,6 @@
   {{/let}}
 
   {{> publicModalStockTransactionCreate}}
+  {{> publicModalStockTransactionUpdate}}
 
 </template>

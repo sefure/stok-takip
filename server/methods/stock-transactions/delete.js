@@ -9,7 +9,9 @@ new ValidatedMethod({
     this.unblock();
 
     const stockTransaction = StockTransactions.findOne({ _id: data._id });
+
     ActionStockCardUpdateQuantity(stockTransaction.stockCardId, stockTransaction.quantity, 'delete')
+    
     return StockTransactions.remove({_id: data._id});
     
   }
