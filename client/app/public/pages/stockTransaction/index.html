@@ -1,0 +1,36 @@
+<template name="publicPageStockTransaction">
+
+  {{#let _stockCard=(state.get 'stockCard') _stockTransactions=(state.get 'stockTransactions')}}
+
+    <div class="container py-4">
+
+      <div class="d-flex">
+        <h4>Stock Transactions {{name}}</h4>
+
+        <div class="ms-auto">
+          <button class="btn btn-success btn-sm float-end brd-class-add" data-bs-toggle="modal" data-bs-target="#brdPublicModalStockTransactionCreateModal">Ekle</button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <ul class="list-group">
+
+          {{#each _stockTransactions}}
+            <li class="list-group-item">
+              {{stockCardId}}
+              <button class="btn btn-danger btn-sm float-end brd-stockTransaction-remove">Sil</button>
+            </li>
+
+          {{/each}}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  {{/let}}
+
+  {{> publicModalStockTransactionCreate}}
+
+</template>

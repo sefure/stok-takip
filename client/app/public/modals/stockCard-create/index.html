@@ -1,0 +1,55 @@
+<template name="publicModalStockCardCreate"> 
+  {{#let _products=(state.get 'products') _units=(state.get 'units') _stockTypes=(state.get 'stockTypes')}}
+    <div class="modal" id="brdPublicModalStockCardCreateModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Stock Card</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+            <div class="modal-body">
+
+              <form id="brdPublicModalStockCardCreateForm">
+
+                <div class="form-floating mb-3">
+                  <select class="form-select" name="productId" id="brdPublicModalStockCardCreate_ProductId" aria-label="Floating label select example">
+                    {{#each _products}}
+                      <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                  </select>
+                  <label for="brdPublicModalStockCardCreate_ProductId">Products</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <select class="form-select" name="unitId" id="brdPublicModalStockCardCreate_UnitId" aria-label="Floating label select example">
+                    {{#each _units}}
+                      <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                  </select>
+                  <label for="brdPublicModalStockCardCreate_UnitId">Units</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <select class="form-select" name="stockTypeId" id="brdPublicModalStockCardCreate_StockTypeId" aria-label="Floating label select example">
+                    {{#each _stockTypes}}
+                      <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                  </select>
+                  <label for="brdPublicModalStockCardCreate_StockTypeId">Stock Types</label>
+                </div>
+
+              </form>
+
+            </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="brdPublicModalStockCardCreateForm" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/let}}
+
+</template>

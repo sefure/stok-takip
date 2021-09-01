@@ -1,0 +1,38 @@
+<template name="publicModalStockTypeCreate"> 
+
+    <div class="modal" id="brdPublicModalStockTypeCreateModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Stock Type</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        
+            <div class="modal-body">
+
+              <form id="brdPublicModalStockTypeCreateForm">
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalStockTypeCreateName" name="name" required placeholder=" ">
+                  <label for="brdPublicModalStockTypeCreateName">Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalStockTypeCreateDescription" name="description" placeholder=" ">
+                  <label for="brdPublicModalStockTypeCreateDescription">Description</label>
+                </div>
+
+              </form>
+
+            </div>
+     
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="brdPublicModalStockTypeCreateForm" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</template>

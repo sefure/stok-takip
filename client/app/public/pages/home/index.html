@@ -1,0 +1,55 @@
+<template name="publicPageHome">
+
+  {{#let _products=(state.get 'products')}}
+
+    <div class="container py-4">
+
+      <div class="d-flex">
+        <h4>Products {{name}}</h4>
+
+        <div class="ms-auto">
+          <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#brdPublicModalProductCreateModal">Ekle</button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <ul class="list-group">
+
+          {{#each _products}}
+            <li class="list-group-item">{{name}}<button class="btn btn-danger btn-sm float-end brd-product-remove">Sil</button></li>
+
+          {{/each}}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  {{/let}}
+
+  {{> publicModalProductCreate}}
+
+  <!-- {{#if eq 1 2}}
+
+{{else}}
+
+{{/if}}
+
+{{#unless eq 1 2}}
+
+{{/unless}}
+
+{{#with todos}}
+
+<h4>Merhaba Meteor.js {{name}}</h4>
+
+{{/with}}
+
+{{#if todos}}
+
+<h4>Merhaba Meteor.js {{todos.name}}</h4>
+
+{{/if}} -->
+
+</template>

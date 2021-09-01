@@ -1,0 +1,39 @@
+<template name="publicPageStockCard">
+
+  {{#let _product=(state.get 'product') _stockCards=(state.get 'stockCards')}}
+
+    <div class="container py-4">
+
+      <div class="d-flex">
+        <h4>Stock Cards {{name}}</h4>
+
+        <div class="ms-auto">
+          <button class="btn btn-success btn-sm float-end brd-class-add" data-bs-toggle="modal" data-bs-target="#brdPublicModalStockCardCreateModal">Ekle</button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <ul class="list-group">
+
+          {{#each _stockCards}}
+            <li class="list-group-item">
+              {{product.name}} ({{quantity}})
+              <div class="d-flex gap-2 float-end"> 
+                <a href="{{pathFor 'public.stockTransaction' stockCardId=_id}}" class="btn btn-danger btn-sm ">Detay</a>
+                <button class="btn btn-danger btn-sm brd-stockCard-remove">Sil</button>
+              </div>
+            </li>
+
+          {{/each}}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  {{/let}}
+
+  {{> publicModalStockCardCreate}}
+
+</template>

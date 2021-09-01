@@ -1,0 +1,38 @@
+<template name="publicModalProductCreate"> 
+
+    <div class="modal" id="brdPublicModalProductCreateModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        
+            <div class="modal-body">
+
+              <form id="brdPublicModalProductCreateForm">
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalProductCreateName" name="name" required placeholder=" ">
+                  <label for="brdPublicModalProductCreateName">Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalProductCreateDescription" name="description" placeholder=" ">
+                  <label for="brdPublicModalProductCreateDescription">Description</label>
+                </div>
+
+              </form>
+
+            </div>
+     
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="brdPublicModalProductCreateForm" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</template>

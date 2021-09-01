@@ -1,0 +1,55 @@
+<template name="publicPageStockType">
+
+  {{#let _stockTypes=(state.get 'stockTypes')}}
+
+    <div class="container py-4">
+
+      <div class="d-flex">
+        <h4>Stock Types {{name}}</h4>
+
+        <div class="ms-auto">
+          <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#brdPublicModalStockTypeCreateModal">Ekle</button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <ul class="list-group">
+
+          {{#each _stockTypes}}
+            <li class="list-group-item">{{name}}<button class="btn btn-danger btn-sm float-end brd-stockType-remove">Sil</button></li>
+
+          {{/each}}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  {{/let}}
+
+  {{> publicModalStockTypeCreate}}
+
+  <!-- {{#if eq 1 2}}
+
+{{else}}
+
+{{/if}}
+
+{{#unless eq 1 2}}
+
+{{/unless}}
+
+{{#with todos}}
+
+<h4>Merhaba Meteor.js {{name}}</h4>
+
+{{/with}}
+
+{{#if todos}}
+
+<h4>Merhaba Meteor.js {{todos.name}}</h4>
+
+{{/if}} -->
+
+</template>
